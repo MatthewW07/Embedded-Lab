@@ -1,5 +1,5 @@
 
-module AOI (
+module AOI22 (
     input wire A, B, C, D,
     output wire Y
   );

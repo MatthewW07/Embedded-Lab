@@ -1,10 +1,10 @@
 
-module aoi_tb;
+module aoi22_tb;
 
   reg A, B, C, D;
   wire Y;
 
-  AOI dut (
+  AOI22 dut (
         .A(A),
         .B(B),
         .C(C),
@@ -17,8 +17,8 @@ module aoi_tb;
   initial
   begin
 
-    $dumpfile("waveform.vcd");
-    $dumpvars(0, aoi_tb);
+    $dumpfile("sim/aoi22.vcd");
+    $dumpvars(0, aoi22_tb);
 
     for (i=0; i < 16; i = i + 1)
     begin

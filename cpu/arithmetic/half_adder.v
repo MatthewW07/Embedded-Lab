@@ -6,7 +6,10 @@ module half_adder (
     output C
 );
 
+    // Determine S
     assign S = A ^ B;
+
+    // Determine C
     assign C = A & B;
 
 endmodule

@@ -1,35 +1,52 @@
+// Initial template
+
+`timescale 1ns/1ps
 
 module half_adder_tb;
 
-  reg A, B;
-  wire S, C;
+    // Inputs
+    reg a;
+    reg b;
 
-  half_adder dut (
-               .A(A),
-               .B(B),
-               .S(S),
-               .C(C)
-             );
+    // Outputs
+    wire sum;
+    wire cout;
 
-  integer i;
+    // Device Under Test
+    half_adder dut (
+        .a(a),
+        .b(b),
+        .sum(sum),
+        .cout(cout)
+    );
 
-  initial
-  begin
+    integer i;
 
-    $dumpfile("sim/half_adder.vcd");
-    $dumpvars(0, half_adder_tb);
+    initial begin
 
-    for (i=0; i<4; i=i+1)
-    begin
-      {A,B} = i;
-      #10;
-      $display("A=%b B=%b S=%b C=%b", A, B, S, C);
+    `ifdef WAVES
+        $dumpfile("sim/half_adder.vcd");
+        $dumpvars(0, half_adder_tb);
+    `endif
+
+        $display("");
+        $display("a b | sum cout");
+        $display("------------------");
+
+        for(i=0; i<4; i=i+1) begin
+
+            {a,b} = i;
+
+            #1;
+
+            $display("%b %b | %b %b",
+              a,b,
+              cout,sum);
+
+        end
+
+        $finish;
+
     end
 
-    $finish;
-
-  end
-
 endmodule
-
-

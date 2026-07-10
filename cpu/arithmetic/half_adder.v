@@ -1,15 +1,25 @@
+//------------------------------------------------------------------------------
+// Module: half_adder
+//
+// Computes the sum and carry of two one-bit inputs.
+//
+// Truth Table
+// a b | carry sum
+// ----+----------
+// 0 0 |   0    0
+// 0 1 |   0    1
+// 1 0 |   0    1
+// 1 1 |   1    0
+//------------------------------------------------------------------------------
 
 module half_adder (
-    input A,
-    input B,
-    output S,
-    output C
+    input  a,
+    input  b,
+    output sum,
+    output cout
 );
 
-    // Determine S
-    assign S = A ^ B;
-
-    // Determine C
-    assign C = A & B;
+    assign sum = a ^ b;
+    assign cout = a & b;
 
 endmodule

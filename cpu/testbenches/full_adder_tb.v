@@ -26,10 +26,10 @@ module full_adder_tb;
 
     initial begin
 
-`ifdef WAVES
+    `ifdef WAVES
         $dumpfile("sim/full_adder.vcd");
         $dumpvars(0, full_adder_tb);
-`endif
+    `endif
 
         $display("");
         $display(" A B Cin | S Cout");
@@ -42,8 +42,9 @@ module full_adder_tb;
             #1;
 
             $display(" %b %b  %b  | %b%b",
-              Cin,A,B,
-              Cout,S);
+                Cin,A,B,
+                Cout,S
+            );
 
         end
 

@@ -4,23 +4,40 @@
 `endif
 
 module full_adder (
-    input A,
-    input B,
-    input Cin,
-    output S,
-    output Cout
-  );
+        input  a,
+        input  b,
+        input  cin,
+        output sum,
+        output cout
+    );
 
-  // Determine S
-  wire w1;
-  xor xor1(w1, A, B);
-  xor xor2(S, w1, Cin);
+    wire partial_sum;
+    wire carry1;
+    wire carry2;
 
-  // Determine Cout
-  wire w2;
-  wire w3;
-  and and1(w2, w1, Cin);
-  and and2(w3, A, B);
-  or  or1(Cout, w2, w3);
+    // Implementation with half adders
+    half_adder ha1(
+        .a(a),
+        .b(b),
+        .sum(partial_sum),
+        .cout(carry1)
+    );
+
+    half_adder ha2(
+        .a(partial_sum),
+        .b(cin),
+        .sum(sum),
+        .cout(carry2)
+    );
+
+    assign cout = carry1 | carry2
+
+    // Implementation without half adders
+
+    // assign partial_sum = a ^ b;
+    // assign sum = partial_sum ^ cin;
+    // assign carry1 = partial_sum & cin;
+    // assign carry2 = a & b;
+    // assign cout   = carry1 | carry 2;
 
 endmodule

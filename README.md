@@ -21,7 +21,9 @@ or
 2. `vvp sim/[module]_sim`
 3. `gtkwave waveform.vcd`
 
-# Goal File Structure:
+# Notes:
+
+## Goal file structure
 
 cpu/
 │
@@ -54,3 +56,59 @@ cpu/
 ├── testbenches/
 │
 └── sim/
+
+## Ideal workflow:
+
+✓ gates
+
+✓ half adder
+
+✓ full adder
+
+✓ ripple carry adder
+
+✓ mux
+
+✓ decoder
+
+✓ encoder
+
+✓ comparator
+
+✓ shifter
+
+✓ ALU
+
+✓ registers
+
+✓ register file
+
+✓ program counter
+
+✓ instruction decoder
+
+✓ control unit
+
+✓ datapath
+
+✓ complete CPU
+
+### For each step:
+
+Write module
+
+↓
+
+Write tiny testbench
+
+↓
+
+Run
+
+↓
+
+PASS?
+
+↓
+
+Move on

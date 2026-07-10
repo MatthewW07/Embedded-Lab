@@ -1,14 +1,19 @@
 
-module OAI21 (
-    input wire A, B, C,
-    output wire Y
-  );
+module oai21 (
+    input  a,
+    input  b,
+    input  c,
+    output y
+);
 
-  wire w1;
-  wire w2;
+    wire or_ab;
+    wire and_out;
 
-  or  g1(w1, A, B);
-  and g2(w2, w1, C);
-  not g3(Y, w2);
+    assign or_ab   = a | b;
+    assign and_out = or_ab & c;
+    assign y       = ~and_out;
+
+    // Or:
+    // assign y = ~((a | b) & c)
 
 endmodule

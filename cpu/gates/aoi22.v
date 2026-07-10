@@ -1,16 +1,19 @@
 
-module AOI22 (
-    input wire A, B, C, D,
-    output wire Y
-  );
+module aoi22 (
+    input  a,
+    input  b,
+    input  c,
+    input  d,
+    output y
+);
 
-  wire w1;
-  wire w2;
-  wire w3;
+    wire and_ab;
+    wire and_cd;
+    wire or_outs;
 
-  and g1(w1, A, B);
-  and g2(w2, C, D);
-  or  g3(w3, w1, w2);
-  not g4(Y, w3);
+    assign and_ab  = a & b;
+    assign and_cd  = c & d;
+    assign or_outs = and_ab | and_cd;
+    assign y = ~or_outs;
 
 endmodule

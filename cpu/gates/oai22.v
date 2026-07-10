@@ -1,16 +1,19 @@
 
-module OAI22 (
-    input wire A, B, C, D;
-    output wire Y;
-  );
+module oai22 (
+    input  a,
+    input  b,
+    input  c,
+    input  d,
+    output y
+);
 
-  wire w1;
-  wire w2;
-  wire w3;
+    wire or_ab;
+    wire or_cd;
+    wire and_outs;
 
-  or  g1(w1, A, B);
-  or  g2(w2, C, D);
-  and g3(w3, w1, w2);
-  not g4(Y, w3);
+    assign or_ab = a | b;
+    assign or_cd = c | d;
+    assign and_outs = or_ab & or_cd;
+    assign y = ~and_outs;
 
 endmodule

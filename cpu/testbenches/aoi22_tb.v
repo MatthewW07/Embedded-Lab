@@ -1,34 +1,55 @@
+// Initial template
+
+`timescale 1ns/1ps
 
 module aoi22_tb;
 
-  reg A, B, C, D;
-  wire Y;
+    // Inputs
+    reg a;
+    reg b;
+    reg c;
+    reg d;
 
-  AOI22 dut (
-        .A(A),
-        .B(B),
-        .C(C),
-        .D(D),
-        .Y(Y)
-      );
+    // Outputs
+    wire y;
 
-  integer i;
+    // Device Under Test
+    aoi22 dut (
+        .a(a),
+        .b(b),
+        .c(c),
+        .d(d),
+        .y(y)
+    );
 
-  initial
-  begin
+    integer i;
 
-    $dumpfile("sim/aoi22.vcd");
-    $dumpvars(0, aoi22_tb);
+    initial begin
 
-    for (i=0; i < 16; i = i + 1)
-    begin
-      {A,B,C,D} = i;
-      #10;
-      $display("A=%b B=%b C=%b D=%b Y=%b", A, B, C, D, Y);
+    `ifdef WAVES
+        $dumpfile("sim/aoi22.vcd");
+        $dumpvars(0, aoi22_tb);
+    `endif
+
+        $display("");
+        $display(" a b c d | y ");
+        $display("------------------");
+
+        for(i=0; i<16; i=i+1) begin
+
+            {a,b,c,d} = i;
+
+            #1;
+
+            $display(" %b %b %b %b | %b",
+                a,b,c,d,
+                y
+            );
+
+        end
+
+        $finish;
+
     end
-
-    $finish;
-
-  end
 
 endmodule

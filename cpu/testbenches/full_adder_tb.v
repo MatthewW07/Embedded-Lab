@@ -5,21 +5,21 @@
 module full_adder_tb;
 
     // Inputs
-    reg A;
-    reg B;
-    reg Cin;
+    reg a;
+    reg b;
+    reg cin;
 
     // Outputs
-    wire S;
-    wire Cout;
+    wire sum;
+    wire cout;
 
     // Device Under Test
     full_adder dut (
-        .A(A),
-        .B(B),
-        .Cin(Cin),
-        .S(S),
-        .Cout(Cout)
+        .a(a),
+        .b(b),
+        .cin(cin),
+        .sum(sum),
+        .cout(cout)
     );
 
     integer i;
@@ -32,18 +32,18 @@ module full_adder_tb;
     `endif
 
         $display("");
-        $display(" A B Cin | S Cout");
+        $display(" a b cin | s cout");
         $display("------------------");
 
         for(i=0; i<8; i=i+1) begin
 
-            {A,B,Cin} = i;
+            {a,b,cin} = i;
 
             #1;
 
             $display(" %b %b  %b  | %b%b",
-                Cin,A,B,
-                Cout,S
+                cin,a,b,
+                cout,s
             );
 
         end

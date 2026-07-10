@@ -1,7 +1,5 @@
 
-`ifdef TEROSHDL
-    `include "half_adder.v"
-`endif
+`include "arithmetic/half_adder.v"
 
 module full_adder (
         input  a,
@@ -30,7 +28,7 @@ module full_adder (
         .cout(carry2)
     );
 
-    assign cout = carry1 | carry2
+    assign cout = carry1 | carry2;
 
     // Implementation without half adders
 

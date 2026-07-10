@@ -1,14 +1,37 @@
-
 param(
     [Parameter(Mandatory=$true)]
     [string]$Module,
 
     [Parameter(Mandatory=$true)]
-    [string]$Folder
+    [string]$Folder,
+
+    [switch]$Wave
 )
 
-iverilog -o sim/$MODULE`_sim.exe $FOLDER/$MODULE.v testbenches/$MODULE`_tb.v
+$exe = "sim/$Module.out"
+$vcd = "sim/$Module.vcd"
 
-vvp sim/$MODULE`_sim.exe
+Write-Host ""
+Write-Host "Compiling $Module..."
 
-gtkwave sim/$MODULE.vcd
+iverilog `
+    -g2012 `
+    -o $exe `
+    "$Folder/$Module.v" `
+    "testbenches/${Module}_tb.v"
+
+if ($LASTEXITCODE -ne 0) {
+    Write-Host ""
+    Write-Host "Compilation failed."
+    exit
+}
+
+Write-Host ""
+Write-Host "Running simulation..."
+vvp $exe
+
+if ($Wave) {
+    Write-Host ""
+    Write-Host "Opening GTKWave..."
+    gtkwave $vcd
+}

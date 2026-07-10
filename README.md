@@ -1,25 +1,25 @@
 # Command Line Workflow:
 
-## 0. Run the Powershell file:
+## 1. Ideal setup:
+`
+.\sim full_adder arithmetic
+`
+or
+`
+.\sim full_adder arithmetic -Wave
+`
+
+
+## 2. Old Powershell file
 
 `
 .\sim.ps1 -Module [Module] -Folder [Folder]
 `
 
-## 1. Compile the design and testbench into a simulation network file
-`
-iverilog -o sim/[module]_sim [folder]/[module].v testbenches/[module_tb].v
-`
-
-## 2. Run the simulation engine to generate the .vcd file
-`
-vvp sim/[module]_sim
-`
-
-## 3. Open the waveform visually
-`
-gtkwave waveform.vcd
-`
+## 3. Run each command separately:
+1. `iverilog -o sim/[module]_sim [folder]/[module].v testbenches/[module_tb].v`
+2. `vvp sim/[module]_sim`
+3. `gtkwave waveform.vcd`
 
 # Goal File Structure:
 

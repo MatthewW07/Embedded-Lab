@@ -1,39 +1,54 @@
+// Initial template
 
-`ifdef TEROSHDL
-    `include "../arithmetic/full_adder.v"
-`endif
+`timescale 1ns/1ps
 
 module full_adder_tb;
 
-  reg A, B, Cin;
-  wire S, Cout;
+    // Inputs
+    reg A;
+    reg B;
+    reg Cin;
 
-  full_adder dut (
-               .A(A),
-               .B(B),
-               .Cin(Cin),
-               .S(S),
-               .Cout(Cout)
-             );
+    // Outputs
+    wire S;
+    wire Cout;
 
-  integer i;
+    // Device Under Test
+    full_adder dut (
+        .A(A),
+        .B(B),
+        .Cin(Cin),
+        .S(S),
+        .Cout(Cout)
+    );
 
-  initial
-  begin
+    integer i;
 
-    $dumpfile("sim/full_adder.vcd");
-    $dumpvars(0, full_adder_tb);
+    initial begin
 
-    for (i=0; i<8; i=i+1)
-    begin
-      {A,B,Cin} = i;
-      #10;
+`ifdef WAVES
+        $dumpfile("sim/full_adder.vcd");
+        $dumpvars(0, full_adder_tb);
+`endif
+
+        $display("");
+        $display(" A B Cin | S Cout");
+        $display("------------------");
+
+        for(i=0; i<8; i=i+1) begin
+
+            {A,B,Cin} = i;
+
+            #1;
+
+            $display(" %b %b  %b  | %b%b",
+              Cin,A,B,
+              Cout,S);
+
+        end
+
+        $finish;
+
     end
 
-    $finish;
-
-  end
-
 endmodule
-
-

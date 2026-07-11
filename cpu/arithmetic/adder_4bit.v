@@ -1,9 +1,6 @@
 
 //------------------------------------------------------------------------------
-// Module: ripple_carry_4bit_adder
-//
-// Computes the sum and carry of two one-bit inputs.
-//
+// Module: adder_4bit
 //------------------------------------------------------------------------------
 
 `include "arithmetic/full_adder.v"
@@ -17,7 +14,6 @@ module adder_4bit (
 );
 
     // 1. Series of full adders implementation
-
     wire c1;
     wire c2;
     wire c3;

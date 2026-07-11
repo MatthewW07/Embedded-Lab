@@ -1,4 +1,6 @@
 
+// TESTED
+
 module oai21 (
     input  a,
     input  b,

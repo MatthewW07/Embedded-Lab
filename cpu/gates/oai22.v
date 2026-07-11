@@ -1,4 +1,6 @@
 
+// TESTED
+
 module oai22 (
     input  a,
     input  b,

@@ -1,6 +1,7 @@
 
 // ========================
 // Module: mux
+// NOT TESTED
 //
 // if sel=0, then out=a; else out=b.
 // ========================

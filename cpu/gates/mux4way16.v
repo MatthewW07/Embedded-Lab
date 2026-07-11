@@ -1,6 +1,7 @@
 
 // ========================
 // Module: mux4way16
+// NOT TESTED
 //
 // 4 way multiplexer with 16 bits
 // ========================

@@ -1,4 +1,6 @@
 
+// TESTED
+
 module or16way (
     input  [15:0] a,
     output        out

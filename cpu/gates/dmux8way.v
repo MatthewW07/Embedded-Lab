@@ -5,9 +5,9 @@
 // 8 way demuxiplexor with 1 bit
 // ========================
 
-module dmux4way (
+module dmux8way (
     input       in,
-    input [0:1] sel,
+    input [2:0] sel,
     output      a,
     output      b,
     output      c,
@@ -15,7 +15,7 @@ module dmux4way (
     output      e,
     output      f,
     output      g,
-    output      h,
+    output      h
 );
 
     assign a = in & (~sel[2] & ~sel[1] & ~sel[0]);
@@ -28,3 +28,11 @@ module dmux4way (
     assign h = in & ( sel[2] &  sel[1] &  sel[0]);
 
 endmodule
+
+// NIKA NEEDS:
+// 1. cover up shift ($150)
+// 2. reschedule return flight ($10)
+// 3. register as CCA ()
+
+// I NEED:
+// 1. register as CCA

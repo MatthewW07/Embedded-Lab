@@ -5,10 +5,10 @@
 module not16_tb;
 
     // Inputs
-    reg [0:15] a;
+    reg [15:0] a;
 
     // Outputs
-    wire [0:15] b;
+    wire [15:0] b;
 
     // Device Under Test
     not16 dut (

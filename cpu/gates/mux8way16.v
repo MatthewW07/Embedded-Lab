@@ -9,27 +9,27 @@
 `include "gates/mux16.v"
 
 module mux8way16 (
-    input  [0:15] a,
-    input  [0:15] b,
-    input  [0:15] c,
-    input  [0:15] d,
-    input  [0:15] e,
-    input  [0:15] f,
-    input  [0:15] g,
-    input  [0:15] h,
-    output [0:3]  sel,
-    output [0:15] out
+    input  [15:0] a,
+    input  [15:0] b,
+    input  [15:0] c,
+    input  [15:0] d,
+    input  [15:0] e,
+    input  [15:0] f,
+    input  [15:0] g,
+    input  [15:0] h,
+    output [2:0]  sel,
+    output [15:0] out
 );
 
-    wire [0:15] out_abcd;
-    wire [0:15] out_efgh;
+    wire [15:0] out_abcd;
+    wire [15:0] out_efgh;
 
     mux4way16 mux_abcd (
         .a(a),
         .b(b),
         .c(c),
         .d(d),
-        .sel(sel[0:1]),
+        .sel(sel[1:0]),
         .out(out_abcd)
     );
 
@@ -38,14 +38,14 @@ module mux8way16 (
         .b(f),
         .c(g),
         .d(h),
-        .sel(sel[0:1]),
+        .sel(sel[1:0]),
         .out(out_efgh)
     );
 
     mux16 mux_out (
         .a(out_abcd),
         .b(out_efgh),
-        .sel(self[3]),
+        .sel(self[2]),
         .out(out)
     );
 

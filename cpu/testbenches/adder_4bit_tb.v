@@ -28,7 +28,7 @@ module adder_4bit_tb;
 
     integer i;
     integer errors;
-    reg [0:4] expected;
+    reg [4:0] expected;
 
     initial begin
         errors = 0;

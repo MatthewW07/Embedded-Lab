@@ -5,7 +5,7 @@
 module or16way_tb;
 
     // Inputs
-    reg [0:15] a;
+    reg [15:0] a;
 
     // Outputs
     wire out;

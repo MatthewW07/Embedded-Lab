@@ -8,16 +8,16 @@
 `include "gates/mux16.v"
 
 module mux4way16 (
-    input  [0:15] a,
-    input  [0:15] b,
-    input  [0:15] c,
-    input  [0:15] d,
-    input  [0:1]  sel,
+    input  [15:0] a,
+    input  [15:0] b,
+    input  [15:0] c,
+    input  [15:0] d,
+    input  [1:0]  sel,
     output        out
 );
 
-    wire [0:15] out_ab;
-    wire [0:15] out_cd;
+    wire [15:0] out_ab;
+    wire [15:0] out_cd;
 
     mux16 mux_ab (
         .a(a),

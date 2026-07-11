@@ -1,6 +1,6 @@
 
 module or16way (
-    input  [0:15] a,
+    input  [15:0] a,
     output        out
 );
 

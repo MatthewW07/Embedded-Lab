@@ -2,10 +2,10 @@
 `include "gates/mux.v"
 
 module mux16 (
-    input  [0:15] a,
-    input  [0:15] b,
+    input  [15:0] a,
+    input  [15:0] b,
     input         sel,
-    output [0:15] out,
+    output [15:0] out,
 );
 
     mux (a=a[0],  b=b[0],  sel=sel, out=out[0]);

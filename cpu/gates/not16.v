@@ -1,7 +1,7 @@
 
 module not16 (
-    input  [0:15] a,
-    output [0:15] b
+    input  [15:0] a,
+    output [15:0] b
 );
 
     assign b = ~a;

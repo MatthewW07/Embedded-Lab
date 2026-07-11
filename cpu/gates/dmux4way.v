@@ -7,7 +7,7 @@
 
 module dmux4way (
     input       in,
-    input [0:1] sel,
+    input [1:0] sel,
     output      a,
     output      b,
     output      c,
@@ -15,9 +15,9 @@ module dmux4way (
 );
 
     assign a = in & (~sel[0] & ~sel[1]);
-    assign b = in & (sel[0]  & ~sel[1]);
-    assign c = in & (~sel[0] & sel[1]);
-    assign d = in & (sel[0]  & sel[1]);
+    assign b = in & (~sel[0] &  sel[1]);
+    assign c = in & ( sel[0] & ~sel[1]);
+    assign d = in & ( sel[0] &  sel[1]);
 
 endmodule
 

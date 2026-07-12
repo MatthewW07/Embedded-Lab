@@ -1,12 +1,12 @@
 // Initial template
 
 `ifdef TEROSHDL
-    `include "adder_4bit.v"
+    `include "add4.v"
 `endif
 
 `timescale 1ns/1ps
 
-module adder_4bit_tb;
+module add4;
 
     // Inputs
     reg [3:0] a;
@@ -18,7 +18,7 @@ module adder_4bit_tb;
     wire       cout;
 
     // Device Under Test
-    adder_4bit dut (
+    add4 dut (
         .a(a),
         .b(b),
         .cin(cin),
@@ -34,12 +34,11 @@ module adder_4bit_tb;
         errors = 0;
 
         `ifdef WAVES
-            $dumpfile("sim/adder_4bit.vcd");
-            $dumpvars(0, adder_4bit_tb);
+            $dumpfile("sim/add4.vcd");
+            $dumpvars(0, add4_tbs);
         `endif
 
         $display("");
-        $display(" Ripple Carry ");
         $display(" a    b    cin | sum  cout");
         $display("---------------------------");
 

@@ -8,12 +8,12 @@ module not16_tb;
     reg [15:0] a;
 
     // Outputs
-    wire [15:0] b;
+    wire [15:0] out;
 
     // Device Under Test
     not16 dut (
         .a(a),
-        .b(b)
+        .out(out)
     );
 
     integer i;
@@ -26,7 +26,7 @@ module not16_tb;
     `endif
 
         $display("");
-        $display(" a | b");
+        $display(" a | out");
         $display("------------------");
 
         for(i=0; i<100; i=i+1) begin
@@ -37,7 +37,7 @@ module not16_tb;
 
             $display(" %b | %b ",
                 a,
-                b
+                out
             );
 
         end

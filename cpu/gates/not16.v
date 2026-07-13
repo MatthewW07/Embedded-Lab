@@ -3,10 +3,10 @@
 
 module not16 (
     input  [15:0] a,
-    output [15:0] b
+    output [15:0] out
 );
 
-    assign b = ~a;
+    assign out = ~a;
 
     // For not16, and16, or16:
     // not16: assign b = ~a;

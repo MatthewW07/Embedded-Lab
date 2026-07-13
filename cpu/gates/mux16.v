@@ -1,5 +1,7 @@
 
 // NOT TESTED
+// if sel == 0 -> use a
+// if sel == 1 -> use b
 
 `include "gates/mux.v"
 

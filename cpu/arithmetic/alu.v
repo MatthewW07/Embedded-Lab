@@ -1,6 +1,6 @@
 
 
-// module: alu
+// module: ALU (16-bit)
 // UNTESTED
 //
 // notes: flip

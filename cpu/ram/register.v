@@ -7,7 +7,7 @@ module register (
     input         clk,
     input  [15:0] in,
     input         load,
-    output [15:0] out
+    output reg [15:0] out
 );
 
     always @(posedge clk) begin

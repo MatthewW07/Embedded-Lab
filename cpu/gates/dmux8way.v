@@ -29,11 +29,3 @@ module dmux8way (
     assign h = in & ( sel[2] &  sel[1] &  sel[0]);
 
 endmodule
-
-// NIKA NEEDS:
-// 1. cover up shift ($150)
-// 2. reschedule return flight ($10)
-// 3. register as CCA ()
-
-// I NEED:
-// 1. register as CCA

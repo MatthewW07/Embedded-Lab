@@ -1,7 +1,7 @@
 
 // ========================
 // Module: mux8way16
-// NOT TESTED
+// UNTESTED
 //
 // 8 way multiplexer with 16 bits
 // ========================

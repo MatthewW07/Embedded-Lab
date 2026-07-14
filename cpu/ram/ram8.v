@@ -3,6 +3,7 @@
 // UNTESTED
 
 // IMPLEMENTATION #1
+/*
 module ram8 (
     input        clk,
     input  [7:0] in,
@@ -23,11 +24,13 @@ module ram8 (
     end
 
 endmodule
+*/
 
 
 // IMPLEMENTATION #2
 `include "ram/register.v"
 `include "gates/dmux8way.v"
+`include "gates/mux8way16.v"
 module ram8 (
     input         clk,
     input  [15:0] in,
@@ -47,15 +50,15 @@ module ram8 (
     );
 
     register reg0(.clk(clk), .in(in), .load(l0), .out(r0));
-    register reg0(.clk(clk), .in(in), .load(l1), .out(r1));
-    register reg0(.clk(clk), .in(in), .load(l2), .out(r2));
-    register reg0(.clk(clk), .in(in), .load(l3), .out(r3));
-    register reg0(.clk(clk), .in(in), .load(l4), .out(r4));
-    register reg0(.clk(clk), .in(in), .load(l5), .out(r5));
-    register reg0(.clk(clk), .in(in), .load(l6), .out(r6));
-    register reg0(.clk(clk), .in(in), .load(l7), .out(r7));
+    register reg1(.clk(clk), .in(in), .load(l1), .out(r1));
+    register reg2(.clk(clk), .in(in), .load(l2), .out(r2));
+    register reg3(.clk(clk), .in(in), .load(l3), .out(r3));
+    register reg4(.clk(clk), .in(in), .load(l4), .out(r4));
+    register reg5(.clk(clk), .in(in), .load(l5), .out(r5));
+    register reg6(.clk(clk), .in(in), .load(l6), .out(r6));
+    register reg7(.clk(clk), .in(in), .load(l7), .out(r7));
 
-    mux8way16 output(
+    mux8way16 output_mux(
         .a(r0), .b(r1), .c(r2), .d(r3),
         .e(r4), .f(r5), .g(r6), .h(r7),
         .sel(address),

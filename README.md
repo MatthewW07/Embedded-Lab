@@ -1,29 +1,28 @@
-# Command Line Workflow:
 
-## 1. Ideal setup:
-`
-.\sim full_adder arithmetic
-`
-or
-`
-.\sim full_adder arithmetic -Wave
-`
+# My Embedded Lab Repository
 
+I like the idea of having an area in my future living space dedicated towards electronics and computers. I imagine being able to come home every day to a 3-monitor setup with a Jarvis AI system setup and a bunch of cool electronics projects scattered across my desk; that would be cool. Anyways, here's my repository where I try to learn embedded systems, electronics, and low-level hardware through some projects.
 
-## 2. Old Powershell file
+<hr style="border: none; border-top: 10px double #333; color: #333; overflow: visible; text-align: center; height: 5px;">
 
-`
-.\sim.ps1 -Module [Module] -Folder [Folder]
-`
+## Verilog CPU
 
-## 3. Run each command separately:
-1. `iverilog -o sim/[module]_sim [folder]/[module].v testbenches/[module_tb].v`
-2. `vvp sim/[module]_sim`
-3. `gtkwave waveform.vcd`
+It would be great if I could understand the basics as to how a CPU works by simulating my own system. I'm not sure how far I'll be able to get in this project with only Verilog, though. Ideally, I'd be able to simulate a very small CPU and run my own program on it -- assuming a small simulated computer would fit in my real computer's RAM.
 
-# Notes:
+**Terminal Commands**
 
-## Goal file structure
+Just for my own sake, these are the commands that I need to know to use Icarus Verilog:
+
+1. Example for compiling + running a file: `.\sim full_adder arthmetic` or `.\sim full_adder arithmetic -Wave`
+2. Using the custom Powershell script: `.\sim.ps1 -Module [Module] -Folder [Folder]`
+3. Each command separately: 
+    - `iverilog -o sim/[module]_sim [folder]/[module].v testbenches/[module_tb].v`
+    - `vvp sim/[module]_sim`
+    - `gtkwave waveform.vcd`
+
+**Goal File Structure**
+
+Again, if I can stay consistent in working on this project, this note will help me. Here is my ideal file structure:
 
 cpu/
 │
@@ -57,58 +56,3 @@ cpu/
 │
 └── sim/
 
-## Ideal workflow:
-
-✓ gates
-
-✓ half adder
-
-✓ full adder
-
-✓ ripple carry adder
-
-✓ mux
-
-✓ decoder
-
-✓ encoder
-
-✓ comparator
-
-✓ shifter
-
-✓ ALU
-
-✓ registers
-
-✓ register file
-
-✓ program counter
-
-✓ instruction decoder
-
-✓ control unit
-
-✓ datapath
-
-✓ complete CPU
-
-### For each step:
-
-Write module
-
-↓
-
-Write tiny testbench
-
-↓
-
-Run
-
-↓
-
-PASS?
-
-↓
-
-Move on
